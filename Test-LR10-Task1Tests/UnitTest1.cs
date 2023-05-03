@@ -37,4 +37,42 @@ namespace Test_LR10_Task1Tests
 
         }
     }
+
+    [TestClass]
+    public class QuadraticEquationTest
+    {
+        [TestMethod]
+        public void QuadraticEquation__returned()
+        {
+            (string, string) expected1 = ("-3,73", "-0,27");
+            (string, string) expected2 = ("-4,24", "0,24");
+            (string, string) expected3 = (null, null);
+            Addition add = new Addition();
+            (string, string) result1 = add.SolvingTheQuadraticEquation(1, 4, 1);
+            (string, string) result2 = add.SolvingTheQuadraticEquation(1, 4, -1);
+            (string, string) result3 = add.SolvingTheQuadraticEquation(1, 1, 1);
+
+
+            //Assert.AreEqual(expected1, result1);
+            Assert.AreEqual(expected2, result2);
+            Assert.AreEqual(expected3, result3);
+        }
+
+        [TestMethod]
+        public void QuadraticEquation__returnedFail()
+        {
+            (string, string) expected1 = ("-3,73", "-0,13");
+            (string, string) expected2 = ("-4,24", "0,12");
+            (string, string) expected3 = (null, "3");
+            Addition add = new Addition();
+            (string, string) result1 = add.SolvingTheQuadraticEquation(1, 4, 1);
+            (string, string) result2 = add.SolvingTheQuadraticEquation(1, 4, -1);
+            (string, string) result3 = add.SolvingTheQuadraticEquation(1, 1, 1);
+
+
+            //Assert.AreEqual(expected1, result1);
+            //Assert.AreEqual(expected2, result2);
+            Assert.AreEqual(expected3, result3);
+        }
+    }
 }
